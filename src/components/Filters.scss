@@ -1,0 +1,21 @@
+.form {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  &__input {
+    width: 60%;
+    padding: 12px 20px;
+    border: 1px solid #97ce4c;
+    border-radius: 4px;
+    outline: none;
+    box-shadow: 2px 2px #f675da;
+    @media all and (min-width: 768px) {
+      max-width: 25%;
+    }
+  }
+}
+
+input::placeholder {
+  color: #97ce4c;
+}

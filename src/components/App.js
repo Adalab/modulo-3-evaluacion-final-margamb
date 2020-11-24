@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.scss';
 import api from './services/api';
 import CharacterList from './CharacterList';
+import FIlters from './Filters';
 
 const App = () => {
   // state
@@ -16,9 +17,19 @@ const App = () => {
     });
   }, []);
 
+  //event
+  const handleFilter = (filterText) => {
+    setFilterText(filterText);
+  };
+
+  const filteredCharactes = characters.filter((character) => {
+    return character.name.toLowerCase().includes(filterText.toLowerCase());
+  });
+
   return (
     <div className="App">
-      <CharacterList characters={characters} />
+      <FIlters handleFilter={handleFilter} />
+      <CharacterList characters={filteredCharactes} />
     </div>
   );
 };

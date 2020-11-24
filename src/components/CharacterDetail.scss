@@ -9,6 +9,7 @@
   justify-content: center;
   &__img {
     border-radius: 20px;
+    margin: 20px;
   }
   &__name {
     margin-top: 20px;
@@ -19,5 +20,14 @@
     background-color: #01b4c6;
     padding: 10px;
     border-radius: 10px;
+  }
+  &__row {
+    display: flex;
+    flex-direction: row;
+    &--detail {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
   }
 }

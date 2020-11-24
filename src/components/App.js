@@ -5,7 +5,8 @@ import CharacterList from './CharacterList';
 import CharacterDetail from './CharacterDetail';
 import Header from './Header';
 import Filters from './Filters';
-import { Switch, Route } from 'react-router-dom';
+import Loading from './Loading';
+import { Switch, Route, Link } from 'react-router-dom';
 
 const App = () => {
   // state
@@ -27,16 +28,32 @@ const App = () => {
     setFilterText(filterText);
   };
 
-  const filteredCharacters = characters.filter((character) => {
-    return character.name.toLowerCase().includes(filterText.toLowerCase());
-  });
+  const handleResetSearch = () => {
+    setFilterText('');
+  };
+
+  const alphabeticalByName = (a, b) => {
+    if (a.name < b.name) {
+      return -1;
+    }
+    if (a.name > b.name) {
+      return 1;
+    }
+    return 0;
+  };
+
+  const filteredCharacters = characters
+    .filter((character) => {
+      return character.name.toLowerCase().includes(filterText.toLowerCase());
+    })
+    .sort(alphabeticalByName);
 
   const renderCharacterDetail = (props) => {
     const routeCharacterId = parseInt(props.match.params.id);
     const character = characters.find(
       (character) => character.id === routeCharacterId
     );
-    console.log('renderCharacterDetail', character);
+
     if (character) {
       return (
         <div>
@@ -44,25 +61,46 @@ const App = () => {
         </div>
       );
     } else {
-      return <div>Mr. Poopy is loading</div>;
+      return (
+        <div>
+          {`There's no character with id: ${routeCharacterId}`}
+          <Link
+            to="/"
+            style={{ textDecoration: 'none' }}
+            className="CharacterCardDetail__back"
+          >
+            Volver
+          </Link>
+        </div>
+      );
     }
   };
 
   return (
     <div className="App">
-      {isLoading === true ? 'Cargando' : ''}
       <Header />
-      <Switch>
-        <Route exact path="/">
-          <Filters handleFilter={handleFilter} filterText={filterText} />
-          {filteredCharacters.length === 0 ? (
-            <div>{`No hay ningun personaje llamado ${filterText} `}</div>
-          ) : (
-            <CharacterList characters={filteredCharacters} />
-          )}
-        </Route>
-        <Route path="/detail/:id" component={renderCharacterDetail} />
-      </Switch>
+      {isLoading === true ? (
+        <Loading />
+      ) : (
+        <Switch>
+          <Route exact path="/">
+            <Filters
+              handleFilter={handleFilter}
+              filterText={filterText}
+              onReset={handleResetSearch}
+            />
+            {filteredCharacters.length === 0 ? (
+              <div>
+                {`There's no character called ${filterText} `}
+                <button onClick={handleResetSearch}>Reset Search</button>
+              </div>
+            ) : (
+              <CharacterList characters={filteredCharacters} />
+            )}
+          </Route>
+          <Route path="/detail/:id" component={renderCharacterDetail} />
+        </Switch>
+      )}
     </div>
   );
 };

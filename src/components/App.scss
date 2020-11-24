@@ -3,11 +3,17 @@
   margin: 0;
   box-sizing: border-box;
 }
+body {
+  // background-color: #f8d3ac;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
 
 .App {
-  width: 100vw;
-  height: 100vh;
-  background-image: linear-gradient(white 10%, #f8d3ac 90%);
+  width: 100%;
+  height: 100%;
+  //background-image: linear-gradient(white 10%, #f8d3ac 90%);
+  // background-color: #f8d3ac;
 }
 
 .headerContainer {
@@ -41,14 +47,22 @@
   }
   &__li {
     width: 50%;
-    background-color: #01b4c6;
+    padding: 16px;
+    min-width: 200px;
+    // background-color: #01b4c6;
     margin: 10px;
     text-align: center;
     // display: flex;
     // flex-direction: column;
     // align-items: center;
     border-radius: 20px;
-    box-shadow: 0px 3px #f675da;
+    box-shadow: 1px 2px 2px rgba(12, 12, 12, 0.1);
+    // box-shadow: 0px 3px #f675da;
+
+    &:hover {
+      box-shadow: 2px 5px 5px rgba(12, 12, 12, 0.3);
+    }
+
     @media all and (min-width: 768px) {
       width: 20%;
     }
@@ -57,11 +71,13 @@
 
 .charactersUl__li--img {
   width: 100%;
+  border-radius: 10%;
 }
 
 //CharacterCard
 .characterName {
-  font-size: 20px;
+  font-size: 16px;
+  padding: 5px;
   color: #3a4767;
   margin-top: 10px;
 }

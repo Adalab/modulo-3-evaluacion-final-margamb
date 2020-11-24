@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Filters.scss';
 
 const Filters = (props) => {
@@ -20,8 +21,15 @@ const Filters = (props) => {
         placeholder="Example: Poopy"
         value={props.filterText}
       />
+      <p onClick={props.onReset} className="deleteBtn">
+        X
+      </p>
     </form>
   );
 };
 
 export default Filters;
+
+Filters.propTypes = {
+  input: PropTypes.string,
+};

@@ -1,6 +1,7 @@
 import React from 'react';
 import CharacterCard from './CharacterCard';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const CharacterList = (props) => {
   //console.log('characters', props.characters);
@@ -21,3 +22,8 @@ const CharacterList = (props) => {
 };
 
 export default CharacterList;
+
+CharacterList.propTypes = {
+  //array que tiene un objeto
+  characters: PropTypes.arrayOf(PropTypes.shape({ id: PropTypes.number })),
+};

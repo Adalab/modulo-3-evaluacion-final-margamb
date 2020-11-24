@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const CharacterCard = (props) => {
   //console.log('characterCard', props);
@@ -6,7 +7,6 @@ const CharacterCard = (props) => {
     <div>
       <img
         className="charactersUl__li--img"
-        // className="img"
         src={props.image}
         alt={props.name}
         title={props.name}
@@ -20,6 +20,9 @@ const CharacterCard = (props) => {
 };
 
 export default CharacterCard;
-// {
-//   props.species === 'Human' ? 'H' : 'A';
-// }
+
+CharacterCard.protoTypes = {
+  image: PropTypes.string,
+  name: PropTypes.string,
+  species: PropTypes.string,
+};

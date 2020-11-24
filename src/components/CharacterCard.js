@@ -1,7 +1,7 @@
 import React from 'react';
 
 const CharacterCard = (props) => {
-  console.log('characterCard', props);
+  //console.log('characterCard', props);
   return (
     <div>
       <img

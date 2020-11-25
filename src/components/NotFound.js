@@ -15,7 +15,7 @@ const NotFound = (props) => {
         className="notFound__img"
       />
       <Link to="/" style={{ textDecoration: 'none' }} className="notFound__btn">
-        Volver
+        Back
       </Link>
     </div>
   );

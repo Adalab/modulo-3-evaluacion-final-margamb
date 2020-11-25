@@ -21,9 +21,9 @@ const Filters = (props) => {
         placeholder="Example: Poopy"
         value={props.filterText}
       />
-      <p onClick={props.onReset} className="deleteBtn">
+      <button onClick={props.onReset} className="deleteBtn">
         X
-      </p>
+      </button>
     </form>
   );
 };

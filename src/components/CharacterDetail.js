@@ -27,7 +27,7 @@ const CharacterDetail = (props) => {
         style={{ textDecoration: 'none' }}
         className="CharacterCardDetail__back"
       >
-        Volver
+        Back
       </Link>
     </div>
   );

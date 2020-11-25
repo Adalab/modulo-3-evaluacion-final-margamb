@@ -23,13 +23,15 @@ input::placeholder {
 
 .deleteBtn {
   cursor: pointer;
-  padding: 10px 14px;
+  padding: 10px 16px;
   margin-left: 8px;
   background-color: #f675da;
   border-radius: 100%;
   color: white;
   font-weight: 700;
   opacity: 0.5;
+  border: none;
+  outline: none;
 }
 .deleteBtn:hover {
   opacity: 1;

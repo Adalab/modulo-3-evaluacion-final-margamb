@@ -21,6 +21,7 @@ body {
   margin-bottom: 20px;
   &__img {
     width: 40%;
+    height: auto;
     @media all and (min-width: 768px) {
       max-width: 50%;
     }

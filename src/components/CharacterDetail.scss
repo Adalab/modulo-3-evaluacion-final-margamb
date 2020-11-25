@@ -8,6 +8,7 @@
   align-items: center;
   justify-content: center;
   &__img {
+    width: 250px;
     border-radius: 20px;
     margin: 20px;
   }
@@ -22,17 +23,22 @@
     border-radius: 10px;
     opacity: 0.5;
     color: white;
+    margin-top: 30px;
     &:hover {
       opacity: 1;
     }
   }
   &__row {
-    display: flex;
-    flex-direction: row;
+    @media all and (min-width: 768px) {
+      display: flex;
+      flex-direction: row;
+    }
+
     &--detail {
       display: flex;
       flex-direction: column;
       justify-content: center;
+      margin-left: 20px;
     }
   }
 }

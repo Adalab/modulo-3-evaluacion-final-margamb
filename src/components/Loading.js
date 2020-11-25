@@ -5,7 +5,7 @@ import './Loading.scss';
 const Loading = (props) => {
   return (
     <div className="mrPoopySpinner">
-      <img className="mrPoopySpinner__img" src={MrPoopy} />
+      <img className="mrPoopySpinner__img" src={MrPoopy} alt="loading" />
     </div>
   );
 };

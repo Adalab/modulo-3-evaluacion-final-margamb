@@ -4,7 +4,7 @@ import './CharacterDetail.scss';
 import PropTypes from 'prop-types';
 
 const CharacterDetail = (props) => {
-  console.log('detail', props);
+  //console.log('detail', props);
   return (
     <div className="CharacterCardDetail">
       <div className="CharacterCardDetail__row">
@@ -18,7 +18,7 @@ const CharacterDetail = (props) => {
           <h4 className="CharacterCardDetail__name">{props.name}</h4>
           <p>Species: {props.species === 'Human' ? '👶' : '🛸'}</p>
           <p>Origin: {props.origin.name}</p>
-          <p>Status: {props.status === 'Dead' ? '⚰️' : 'Alive'}</p>
+          <p>Status: {props.status === 'Dead' ? '☠️' : 'Alive'}</p>
           <p>Episodes: {props.episode.length}</p>
         </div>
       </div>

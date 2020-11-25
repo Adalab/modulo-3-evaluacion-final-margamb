@@ -17,9 +17,14 @@
   }
   &__back {
     color: black;
-    background-color: #01b4c6;
+    background-color: #f675da;
     padding: 10px;
     border-radius: 10px;
+    opacity: 0.5;
+    color: white;
+    &:hover {
+      opacity: 1;
+    }
   }
   &__row {
     display: flex;

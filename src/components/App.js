@@ -6,7 +6,9 @@ import CharacterDetail from './CharacterDetail';
 import Header from './Header';
 import Filters from './Filters';
 import Loading from './Loading';
-import { Switch, Route, Link } from 'react-router-dom';
+import NotFound from './NotFound';
+import NotCharacterFound from './NotCharacterFound';
+import { Switch, Route } from 'react-router-dom';
 
 const App = () => {
   // state
@@ -32,6 +34,7 @@ const App = () => {
     setFilterText('');
   };
 
+  // ordenar por nombre con sort().
   const alphabeticalByName = (a, b) => {
     if (a.name < b.name) {
       return -1;
@@ -48,6 +51,7 @@ const App = () => {
     })
     .sort(alphabeticalByName);
 
+  // render tarjeta detail
   const renderCharacterDetail = (props) => {
     const routeCharacterId = parseInt(props.match.params.id);
     const character = characters.find(
@@ -63,14 +67,7 @@ const App = () => {
     } else {
       return (
         <div>
-          {`There's no character with id: ${routeCharacterId}`}
-          <Link
-            to="/"
-            style={{ textDecoration: 'none' }}
-            className="CharacterCardDetail__back"
-          >
-            Volver
-          </Link>
+          <NotFound routeCharacterId={routeCharacterId} />
         </div>
       );
     }
@@ -90,10 +87,10 @@ const App = () => {
               onReset={handleResetSearch}
             />
             {filteredCharacters.length === 0 ? (
-              <div>
-                {`There's no character called ${filterText} `}
-                <button onClick={handleResetSearch}>Reset Search</button>
-              </div>
+              <NotCharacterFound
+                filterText={filterText}
+                handleResetSearch={handleResetSearch}
+              />
             ) : (
               <CharacterList characters={filteredCharacters} />
             )}

@@ -1,9 +1,9 @@
 .mrPoopySpinner {
   position: absolute;
   top: 5%;
-  left: 80%;
-  width: 150px;
-  height: 150px;
+  right: 20px;
+  width: 120px;
+  height: 120px;
   animation: spin 4s linear infinite;
   &__img {
     width: 100%;

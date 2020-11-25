@@ -1,0 +1,25 @@
+.notCharacterFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__img {
+    width: 200px;
+    margin-top: 20px;
+  }
+  &__btn {
+    padding: 5px 10px;
+    margin-top: 20px;
+    background-color: #97ce4c;
+    color: white;
+    font-weight: 700;
+    border-radius: 8px;
+    border: none;
+    opacity: 0.5;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  &__text {
+    color: #97ce4c;
+  }
+}

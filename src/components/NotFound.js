@@ -4,7 +4,7 @@ import './NotFound.scss';
 import { Link } from 'react-router-dom';
 
 const NotFound = (props) => {
-  console.log('notfound', props);
+  //console.log('notfound', props);
   return (
     <div className="notFound">
       <p className="notFound__text">{`There's no character with id: ${props.routeCharacterId}`}</p>
